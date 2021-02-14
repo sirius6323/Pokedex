@@ -1,5 +1,5 @@
 // Creates an empty Array for Pokemon 
-let pokemonList = [];
+const pokemonList = [];
 
 // Created pokemon Objects 
 let pokemon1 = {
