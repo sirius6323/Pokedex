@@ -23,7 +23,7 @@ pokemonList[2] = {
 	weight: 9
 };
 
-// Array that prints pokemon with their weight 
+// Array that prints pokemon with their height 
 for (let i = 0; i < pokemonList.length; i++) {
   document.write(`${pokemonList[i].name} (height: ${pokemonList[i].weight} kg)<br>`);
 }
