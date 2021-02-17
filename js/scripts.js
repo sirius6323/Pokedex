@@ -32,7 +32,11 @@ pokemonList[3] = {
 
 // Array that prints pokemon with their height 
 for (let i = 0; i < pokemonList.length; i++) {
-  document.write(`${pokemonList[i].name} (height: ${pokemonList[i].weight} m)<br>`);
+  if (pokemonList[i].height > 3) {
+		document.write(`${pokemonList[i].name} (height: ${pokemonList[i].height} m) - Wow! thats a tall pokemon <br>`);
+	} else {
+		document.write(`${pokemonList[i].name} (height: ${pokemonList[i].height} m)`);
+	}
 }
 
 
