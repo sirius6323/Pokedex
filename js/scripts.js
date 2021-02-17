@@ -21,7 +21,14 @@ pokemonList[2] = {
 	type: 'Water',
 	height: 0.5,
 	weight: 9
-};
+},
+
+pokemonList[3] = {
+	name: 'Onix',
+	type: ['Rock', 'Ground'],
+	height: 8.8,
+	weight: 210
+}
 
 // Array that prints pokemon with their height 
 for (let i = 0; i < pokemonList.length; i++) {
