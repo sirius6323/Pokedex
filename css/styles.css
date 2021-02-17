@@ -9,8 +9,5 @@ body {
 	color: #eee;
 	display: flex;
 	font-family: 'Space Mono', monospace;
-}
-h1 {
-	color: #e6e600;
-	padding: 10px 0;
+	justify-content: center;
 }
