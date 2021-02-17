@@ -11,3 +11,11 @@ body {
 	font-family: 'Space Mono', monospace;
 	justify-content: center;
 }
+
+.pokedex {
+	align-items: flex-end;
+	display: flex;
+	height: 500px;
+	width: 800px;
+	margin: 50px;
+}
