@@ -30,8 +30,21 @@ pokemonList[3] = {
 	weight: 210
 }
 
-// Array that prints pokemon with their height 
-for (let i = 0; i < pokemonList.length; i++) {
+// forEach Loop
+pokemonList.forEach(function(pokemon) {
+	if(pokemon.height > 3) {
+		document.write(`${pokemon.name} (height: pokemon.height) m - Wow! thats a tall pokemon`);
+	}
+	else {
+		document.write(`${pokemon.name} (height: ${pokemon.height} m <br>)`);
+	}
+});
+
+
+
+
+// for Loop that prints pokemon with their height 
+/* for (let i = 0; i < pokemonList.length; i++) {
   if (pokemonList[i].height > 3) {
 		document.write(`${pokemonList[i].name} (height: ${pokemonList[i].height} m) - Wow! thats a tall pokemon <br>`);
 	} 
@@ -40,5 +53,5 @@ for (let i = 0; i < pokemonList.length; i++) {
 		document.write(`${pokemonList[i].name} (height: ${pokemonList[i].height} m) <br>`);
 	}
 }
-
+ */
 
