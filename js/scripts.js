@@ -11,14 +11,14 @@ pokemonList[0] = {
 
 pokemonList[1] = {
 	name: 'Charmander',
-	type: 'Fire',
+	type: ['Fire'],
 	height: 0.6,
 	weight: 8.5
 },
 
 pokemonList[2] = {
 	name: 'Squirtle',
-	type: 'Water',
+	type: ['Water'],
 	height: 0.5,
 	weight: 9
 },
@@ -29,6 +29,26 @@ pokemonList[3] = {
 	height: 8.8,
 	weight: 210
 }
+
+// IIFE to prevent global access
+let pokemonRepo = (function () {
+	let pokemonList = [];
+
+	// Adds pokemon to the array 
+	function add(pokemon) {
+		pokemonList.push(pokemon);
+	}
+	// Returns all pokemon 
+	function getAll() {
+		return pokemonList;
+	}
+
+	return {
+		add: add,
+		getAll: getAll
+	};
+
+})();
 
 // forEach Loop
 pokemonList.forEach(function(pokemon) {
