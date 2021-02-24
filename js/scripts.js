@@ -36,7 +36,7 @@ pokemonList.forEach(function(pokemon) {
 		document.write(`${pokemon.name} (height: ${pokemon.height} m) - Wow! thats a tall pokemon`);
 	}
 	else {
-		document.write(`${pokemon.name} (height: ${pokemon.height} m <br>)`);
+		document.write(`${pokemon.name} (height: ${pokemon.height} m) <br>)`);
 	}
 });
 
