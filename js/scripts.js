@@ -20,36 +20,9 @@ let pokemonRepo = (function () {
 
 // Adds pokemon to IIFE pokemonRepo Array
 pokemonRepo.add({name: 'Huanter', type: ['Ghost', 'Poison'], height: 1.6, weight: 0.1});
-
 pokemonRepo.add({name: 'Jigglypuff', type: ['Fairy', 'Normal'], height: 0.5, weight: 5.5});
-
-pokemonRepo.add({
-	name: 'Bulbasaur',
-	type: ['Grass', 'Poison'],
-	height: 0.7,
-	weight: 6.9
-},
-
-{
-	name: 'Charmander',
-	type: ['Fire'],
-	height: 0.6,
-	weight: 8.5
-},
-
-pokemonList[2] = {
-	name: 'Squirtle',
-	type: ['Water'],
-	height: 0.5,
-	weight: 9
-},
-
-{
-	name: 'Onix',
-	type: ['Rock', 'Ground'],
-	height: 8.8,
-	weight: 210
-});
+pokemonRepo.add({name: 'Bulbasaur', type: ['Grass', 'Poison'], height: 0.7, weight: 6.9});
+pokemonRepo.add({name: 'Onix', type: ['Rock', 'Ground'], height: 8.8, weight: 210});
 
 // Prints IIFE pokemonList to console 
 console.log(pokemonRepo.getAll());
