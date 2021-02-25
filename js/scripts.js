@@ -50,6 +50,14 @@ let pokemonRepo = (function () {
 
 })();
 
+// Adds pokemon to IIFE pokemonRepo Array
+pokemonRepo.add({name: 'Huanter', type: ['Ghost', 'Poison'], height: 1.6, weight: 0.1});
+
+pokemonRepo.add({name: 'Jigglypuff', type: ['Fairy', 'Normal'], height: 0.5, weight: 5.5});
+
+// Prints IIFE pokemonList to console 
+console.log(pokemonRepo.getAll());
+
 // forEach Loop
 pokemonList.forEach(function(pokemon) {
 	if(pokemon.height > 3) {
