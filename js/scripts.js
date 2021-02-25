@@ -1,20 +1,20 @@
 const pokemonList = [
 	{
-		name: Charmander,
+		name: 'Charmander',
 		type: ['Fire'],
 		height: 0.6,
 		weight: 8.5
 	},
 
 	{
-		name: Squirtle,
+		name: 'Squirtle',
 		type: ['Water'],
 		height:0.5,
 		weight: 9
 	},
 
 	{
-		name: Psyduck,
+		name: 'Psyduck',
 		type: ['Water'],
 		height: 0.8,
 		weight: 19.6
