@@ -53,7 +53,7 @@ console.log(pokemonRepo.getAll());
 // IIFE function with forEach Loop to pokemonList Array to display in browswer 
 (function () {
 	pokemonList.forEach(function(pokemon) {
-		if(pokemon.height > 3) {
+		if (pokemon.height > 3) {
 			document.write(`${pokemon.name} (height: ${pokemon.height} m) - Wow! thats a tall pokemon`);
 		}
 		
