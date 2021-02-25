@@ -1,3 +1,26 @@
+const pokemonList = [
+	{
+		name: Charmander,
+		type: ['Fire'],
+		height: 0.6,
+		weight: 8.5
+	},
+
+	{
+		name: Squirtle,
+		type: ['Water'],
+		height:0.5,
+		weight: 9
+	},
+
+	{
+		name: Psyduck,
+		type: ['Water'],
+		height: 0.8,
+		weight: 19.6
+	}
+];
+
 // IIFE to prevent global access
 let pokemonRepo = (function () {
 	let pokemonList = [];
@@ -39,18 +62,4 @@ console.log(pokemonRepo.getAll());
 		}
 	});
 })();
-
-
-
-// for Loop that prints pokemon with their height 
-/* for (let i = 0; i < pokemonList.length; i++) {
-  if (pokemonList[i].height > 3) {
-		document.write(`${pokemonList[i].name} (height: ${pokemonList[i].height} m) - Wow! thats a tall pokemon <br>`);
-	} 
-	
-	else {
-		document.write(`${pokemonList[i].name} (height: ${pokemonList[i].height} m) <br>`);
-	}
-}
- */
 
