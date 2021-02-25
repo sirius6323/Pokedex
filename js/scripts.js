@@ -58,16 +58,18 @@ pokemonRepo.add({name: 'Jigglypuff', type: ['Fairy', 'Normal'], height: 0.5, wei
 // Prints IIFE pokemonList to console 
 console.log(pokemonRepo.getAll());
 
-// forEach Loop
-pokemonList.forEach(function(pokemon) {
-	if(pokemon.height > 3) {
-		document.write(`${pokemon.name} (height: ${pokemon.height} m) - Wow! thats a tall pokemon`);
-	}
-	else {
-		document.write(`${pokemon.name} (height: ${pokemon.height} m) <br>`);
-	}
-});
-
+// IIFE function with forEach Loop to pokemonList Array to display in browswer 
+(function () {
+	pokemonList.forEach(function(pokemon) {
+		if(pokemon.height > 3) {
+			document.write(`${pokemon.name} (height: ${pokemon.height} m) - Wow! thats a tall pokemon`);
+		}
+		
+		else {
+			document.write(`${pokemon.name} (height: ${pokemon.height} m) <br>`);
+		}
+	});
+})();
 
 
 
