@@ -24,11 +24,11 @@ let pokemonRepo = (function () {
 	];
 
 	// Adds pokemon to the array 
-	function add(pokemon) {
+	function addPokemon(pokemon) {
 		pokemonList.push(pokemon);
 	}
 	// Returns all pokemon 
-	function getAll() {
+	function getAllPokemon() {
 		return pokemonList;
 	}
 
