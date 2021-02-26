@@ -42,7 +42,7 @@ let pokemonRepo = (function () {
 	}
 
 	// Filters to search for specific pokemon
-	function checkPokemon(target) {
+	function searchPokemon(target) {
 		return pokemonList.filter(pokemon => pokemon.name == target);
 	}
 
@@ -84,4 +84,4 @@ function display(pokemon) {
 pokemonRepo.getAllPokemon().forEach(display);
 
 // Returns Array of specific pokemon to the console 
-console.log(pokemonRepo.checkPokemon('Jigglypuff'));
+console.log(pokemonRepo.searchPokemon('Jigglypuff'));
