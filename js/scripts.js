@@ -55,6 +55,7 @@ let pokemonRepo = (function () {
 		addPokemon: addPokemon,
 		getAllPokemon: getAllPokemon,
 		checkPokemon: checkPokemon,
+		searchPokemon: searchPokemon,
 	};
 
 })();
