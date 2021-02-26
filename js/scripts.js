@@ -52,8 +52,8 @@ let pokemonRepo = (function () {
 	}
   // Functions that can be used outside of scope
 	return {
-		add: add,
-		getAll: getAll,
+		addPokemon: addPokemon,
+		getAllPokemon: getAllPokemon,
 		checkPokemon: checkPokemon,
 	};
 
