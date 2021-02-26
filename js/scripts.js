@@ -27,14 +27,34 @@ let pokemonRepo = (function () {
 	function addPokemon(pokemon) {
 		pokemonList.push(pokemon);
 	}
-	// Returns all pokemon 
-	function getAllPokemon() {
-		return pokemonList;
+
+	// Ensures only pokemon objects are added to pokemonRepo 
+	function checkPokemon(item) {
+		let stats = Objects.keys(item);
+		if (stats.include('name') && stats.include('type') && 
+		stats.include('height') && stats.include(weight)) {
+			pokemon.push(item);
+		}
+
+		else {
+			alert('All items in pokemonRepo must be objects');
+		}
 	}
 
+	// Filters to search for specific pokemon
+	function checkPokemon(target) {
+		return pokemonList.filter(pokemon => pokemon.name == target);
+	}
+
+	// Returns all pokemon in array 
+	function getAllPokemon() {
+		return pokemonList
+	}
+  // Functions that can be used outside of scope
 	return {
 		add: add,
-		getAll: getAll
+		getAll: getAll,
+		checkPokemon: checkPokemon,
 	};
 
 })();
@@ -48,16 +68,20 @@ pokemonRepo.add({name: 'Onix', type: ['Rock', 'Ground'], height: 8.8, weight: 21
 // Prints IIFE pokemonList to console 
 console.log(pokemonRepo.getAll());
 
-// IIFE function with forEach Loop to pokemonList Array to display in browswer 
-(function () {
-	pokemonList.forEach(function(pokemon) {
-		if (pokemon.height > 3) {
-			document.write(`${pokemon.name} (height: ${pokemon.height} m) - Wow! thats a tall pokemon`);
-		}
-		
-		else {
-			document.write(`${pokemon.name} (height: ${pokemon.height} m) <br>`);
-		}
-	});
-})();
+// Function to display pokemon on homepage w/ name, type, height, weight 
+function display(pokemon) {
+	if (pokemon.height > 3) {
+		document.write(`${pokemon.name} (height: ${pokemon.height} m) -
+		Wow! thats a tall pokemon`);
+	}
 
+	else {
+		document.write(`${pokemon.name} (height: ${pokemon.height} m) <br>`);
+	}
+}
+
+// Displays each pokemon object in pokemonList Array 
+pokemonRepo.getAll().forEach(display);
+
+// Returns Array of specific pokemon to the console 
+console.log(pokemonRepo.checkPokemon('Jigglypuff'));
