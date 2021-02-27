@@ -32,7 +32,7 @@ let pokemonRepo = (function () {
 	function checkPokemon(item) {
 		let stats = Objects.keys(item);
 		if (stats.include('name') && stats.include('type') && 
-		stats.include('height') && stats.include(weight)) {
+		stats.include('height') && stats.include('weight')) {
 			pokemon.push(item);
 		}
 
