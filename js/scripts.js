@@ -41,6 +41,19 @@ let pokemonRepo = (function () {
 		}
 	}
 
+	// Functions that adds pokemon to a list in button on home page
+	function addListItem (pokemon) {
+		let pokeList = document.querySelector('.pokemon-list');
+		let listPokemon = document.createElement('li');
+		let button = document.createElement('button');
+	
+		button.innerText = pokemon.name;
+		button.classList.add = 'pokemon-button';
+	
+		listPokemon.appendChild(button);
+		pokeList.appendChild(listPokemon);
+	}
+
 	// Filters to search for specific pokemon
 	function searchPokemon(target) {
 		return pokemonList.filter(pokemon => pokemon.name == target);
@@ -71,18 +84,20 @@ console.log(pokemonRepo.getAllPokemon());
 
 // Function to display pokemon on homepage w/ name, type, height, weight 
 function display(pokemon) {
-	if (pokemon.height > 3) {
-		document.write(`${pokemon.name} (height: ${pokemon.height} m) -
-		Wow! thats a tall pokemon`);
-	}
-
-	else {
-		document.write(`${pokemon.name} (height: ${pokemon.height} m) <br>`);
-	}
-}
+	pokemonRepo.addListItem(pokemon);
+});
 
 // Displays each pokemon object in pokemonList Array 
 pokemonRepo.getAllPokemon().forEach(display);
 
 // Returns Array of specific pokemon to the console 
 console.log(pokemonRepo.searchPokemon('Jigglypuff'));
+
+/* if (pokemon.height > 3) {
+	document.write(`${pokemon.name} (height: ${pokemon.height} m) -
+	Wow! thats a tall pokemon`);
+}
+
+else {
+	document.write(`${pokemon.name} (height: ${pokemon.height} m) <br>`);
+} */
