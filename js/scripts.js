@@ -69,6 +69,7 @@ let pokemonRepo = (function () {
 		getAllPokemon: getAllPokemon,
 		checkPokemon: checkPokemon,
 		searchPokemon: searchPokemon,
+		addListItem: addListItem,
 	};
 
 })();
@@ -85,7 +86,7 @@ console.log(pokemonRepo.getAllPokemon());
 // Function to display pokemon on homepage w/ name, type, height, weight 
 function display(pokemon) {
 	pokemonRepo.addListItem(pokemon);
-});
+};
 
 // Displays each pokemon object in pokemonList Array 
 pokemonRepo.getAllPokemon().forEach(display);
