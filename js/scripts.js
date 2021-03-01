@@ -41,7 +41,7 @@ let pokemonRepo = (function () {
 		}
 	}
 
-	// Functions that adds pokemon to a list in button on home page
+	// Functions that adds pokemon to a button on a list on the home page
 	function addListItem (pokemon) {
 		let pokeList = document.querySelector('.pokemon-list');
 		let listPokemon = document.createElement('li');
