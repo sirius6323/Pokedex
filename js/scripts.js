@@ -48,7 +48,7 @@ let pokemonRepo = (function () {
 		let button = document.createElement('button');
 	
 		button.innerText = pokemon.name;
-		button.classList.add = 'pokemon-button';
+		button.classList.add('pokemon-button');
 	
 		listPokemon.appendChild(button);
 		pokeList.appendChild(listPokemon);
