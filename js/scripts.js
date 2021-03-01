@@ -28,7 +28,7 @@ let pokemonRepo = (function () {
 		pokemonList.push(pokemon);
 	}
 
-	// Ensures only pokemon objects are added to pokemonRepo 
+	// Ensures only pokemon objects are added to pokemonRepo w/ name, type, height, weight
 	function checkPokemon(item) {
 		let stats = Objects.keys(item);
 		if (stats.include('name') && stats.include('type') && 
