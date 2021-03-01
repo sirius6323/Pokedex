@@ -93,12 +93,3 @@ pokemonRepo.getAllPokemon().forEach(display);
 
 // Returns Array of specific pokemon to the console 
 console.log(pokemonRepo.searchPokemon('Jigglypuff'));
-
-/* if (pokemon.height > 3) {
-	document.write(`${pokemon.name} (height: ${pokemon.height} m) -
-	Wow! thats a tall pokemon`);
-}
-
-else {
-	document.write(`${pokemon.name} (height: ${pokemon.height} m) <br>`);
-} */
