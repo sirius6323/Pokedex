@@ -16,3 +16,7 @@ body {
 h1 {
 	color: #ffc75f;
 }
+
+.pokemon-list {
+	text-decoration: none;
+}
