@@ -52,6 +52,8 @@ let pokemonRepo = (function () {
 	
 		listPokemon.appendChild(button);
 		pokeList.appendChild(listPokemon);
+
+		button.addEventListener('click', showDetails(pokemon));
 	}
 
 	// Adds event listner to clicked pokemon 
