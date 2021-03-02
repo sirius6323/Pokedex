@@ -54,6 +54,11 @@ let pokemonRepo = (function () {
 		pokeList.appendChild(listPokemon);
 	}
 
+	// Adds event listner to clicked pokemon 
+	function showDetails (pokemon) {
+		console.log(pokemon);
+	}
+
 	// Filters to search for specific pokemon
 	function searchPokemon(target) {
 		return pokemonList.filter(pokemon => pokemon.name == target);
@@ -70,6 +75,7 @@ let pokemonRepo = (function () {
 		checkPokemon: checkPokemon,
 		searchPokemon: searchPokemon,
 		addListItem: addListItem,
+		showDetails: showDetails;
 	};
 
 })();
