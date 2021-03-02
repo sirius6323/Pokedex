@@ -57,6 +57,8 @@ let pokemonRepo = (function () {
 	// Adds event listner to clicked pokemon 
 	function showDetails (pokemon) {
 		console.log(pokemon);
+
+		button.addEventListner('click', showDetails(pokemon));
 	}
 
 	// Filters to search for specific pokemon
