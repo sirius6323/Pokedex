@@ -42,7 +42,7 @@ let pokemonRepo = (function () {
 	}
 
 	// Functions that adds pokemon to a button on a list on the home page
-	function addListItem (pokemon) {
+	function addListItem(pokemon) {
 		let pokeList = document.querySelector('.pokemon-list');
 		let listPokemon = document.createElement('li');
 		let button = document.createElement('button');
@@ -50,15 +50,18 @@ let pokemonRepo = (function () {
 		button.innerText = pokemon.name;
 		button.classList.add('pokemon-button');
 	
+		// Appends button and to li in ul
 		listPokemon.appendChild(button);
 		pokeList.appendChild(listPokemon);
 
-		// Adds event listner to pokemon in list
-		button.addEventListener('click', showDetails(pokemon));
+		// Adds 'click' event listner to pokemon in list
+		button.addEventListener('click', function () {
+			showDetails(pokemon);
+		});
 	}
 
 	// Prints to console on pokemon that was clicked 
-	function showDetails (pokemon) {
+	function showDetails(pokemon) {
 		console.log(pokemon);
 	}
 
