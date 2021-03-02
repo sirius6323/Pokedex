@@ -75,7 +75,7 @@ let pokemonRepo = (function () {
 		checkPokemon: checkPokemon,
 		searchPokemon: searchPokemon,
 		addListItem: addListItem,
-		showDetails: showDetails;
+		showDetails: showDetails,
 	};
 
 })();
