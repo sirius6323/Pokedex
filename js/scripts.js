@@ -62,7 +62,7 @@ let pokemonRepo = (function () {
 
 	// Prints to console on pokemon that was clicked 
 	function showDetails(pokemon) {
-		console.log(pokemon);
+		console.log(pokemon.name);
 	}
 
 	// Filters to search for specific pokemon
