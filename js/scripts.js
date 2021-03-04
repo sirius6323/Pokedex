@@ -1,27 +1,6 @@
 // IIFE to prevent global access
 let pokemonRepo = (function () {
-	let pokemonList = [
-		{
-			name: 'Charmander',
-			type: ['Fire'],
-			height: 0.6,
-			weight: 8.5
-		},
-	
-		{
-			name: 'Squirtle',
-			type: ['Water'],
-			height:0.5,
-			weight: 9
-		},
-	
-		{
-			name: 'Psyduck',
-			type: ['Water'],
-			height: 0.8,
-			weight: 19.6
-		}
-	];
+	let pokemonList = [];
 
 	// Adds pokemon to the array 
 	function addPokemon(pokemon) {
