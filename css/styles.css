@@ -14,9 +14,11 @@ body {
 
 h1 {
 	color: #ffc75f;
+	text-align: center;
 }
 
 .pokemon-list {
+	list-style-type: none;
 	text-decoration: none;
 	display: flex;
 	flex-wrap: wrap;
