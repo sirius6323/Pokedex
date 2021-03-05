@@ -18,6 +18,11 @@ h1 {
 
 .pokemon-list {
 	text-decoration: none;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	margin: 10px;
+	padding: 10px;
 }
 
 .pokemon-button {
