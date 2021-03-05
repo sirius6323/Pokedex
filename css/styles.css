@@ -27,6 +27,10 @@ h1 {
 	padding: 10px;
 }
 
+li {
+	margin: 10px;
+}
+
 .pokemon-button {
 	background-color: #1f3c88;
 	border: 2px solid #f05454;
