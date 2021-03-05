@@ -44,6 +44,22 @@ let pokemonRepo = (function () {
 	function showDetails(pokemon) {
 		console.log(pokemon.name);
 	}
+	// Function to load pokemon by using fetch from Pokemon API 
+	function loadList () {
+		return fetch(apiUrl).then (function (response) {
+			return response.json();
+		}).then (function (json) {
+			json.results.forEach(function (item) {
+				let pokemon = {
+					name: item.name,
+					detailsUrl: item.url
+				};
+				add(pokemon);
+			});
+		}).catch (function (e) {
+			console.log(e);
+		})
+	}
 
 	// Filters to search for specific pokemon
 	function searchPokemon(target) {
@@ -61,6 +77,7 @@ let pokemonRepo = (function () {
 		checkPokemon: checkPokemon,
 		searchPokemon: searchPokemon,
 		addListItem: addListItem,
+		loadList: loadList,
 		showDetails: showDetails,
 	};
 
