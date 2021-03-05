@@ -61,6 +61,9 @@ let pokemonRepo = (function () {
 		})
 	}
 
+	// Function to load detailed data of pokemon
+	function loadDetails 
+
 	// Filters to search for specific pokemon
 	function searchPokemon(target) {
 		return pokemonList.filter(pokemon => pokemon.name == target);
@@ -83,6 +86,12 @@ let pokemonRepo = (function () {
 
 })();
 
-
+// Loops through pokemonRepo array and displays on homepage
+pokemonRepo.loadList().then(function() {
+	// Pokemon data is loaded
+	pokemonRepo.getAllPokemon().forEach(function(pokemon) {
+		pokemonRepo.addListItem(pokemon);
+	});
+});
 
 
