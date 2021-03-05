@@ -42,7 +42,9 @@ let pokemonRepo = (function () {
 
 	// Prints to console on pokemon that was clicked 
 	function showDetails(pokemon) {
-		console.log(pokemon.name);
+		loadDetails(pokemon).then(function() {
+			console.log(pokemon);
+		});
 	}
 	// Function to load pokemon by using fetch from Pokemon API 
 	function loadList () {
