@@ -83,11 +83,6 @@ let pokemonRepo = (function () {
 
 })();
 
-// Adds pokemon to IIFE pokemonRepo Array
-pokemonRepo.addPokemon({name: 'Huanter', type: ['Ghost', 'Poison'], height: 1.6, weight: 0.1});
-pokemonRepo.addPokemon({name: 'Jigglypuff', type: ['Fairy', 'Normal'], height: 0.5, weight: 5.5});
-pokemonRepo.addPokemon({name: 'Bulbasaur', type: ['Grass', 'Poison'], height: 0.7, weight: 6.9});
-pokemonRepo.addPokemon({name: 'Onix', type: ['Rock', 'Ground'], height: 8.8, weight: 210});
 
 // Prints IIFE pokemonList to console 
 console.log(pokemonRepo.getAllPokemon());
@@ -100,5 +95,4 @@ function display(pokemon) {
 // Displays each pokemon object in pokemonList Array 
 pokemonRepo.getAllPokemon().forEach(display);
 
-// Returns Array of specific pokemon to the console 
-console.log(pokemonRepo.searchPokemon('Jigglypuff'));
+
