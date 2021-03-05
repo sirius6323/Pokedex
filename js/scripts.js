@@ -1,6 +1,7 @@
 // IIFE to prevent global access
 let pokemonRepo = (function () {
 	let pokemonList = [];
+	let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
 	// Adds pokemon to the array 
 	function addPokemon(pokemon) {
