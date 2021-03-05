@@ -62,7 +62,20 @@ let pokemonRepo = (function () {
 	}
 
 	// Function to load detailed data of pokemon
-	function loadDetails 
+	function loadDetails(item) {
+		let url = item.detailsUrl;
+		return fetch(url).then (function (response) {
+			return response.json();
+		}).then (function (details) {
+			// Adds details to the item 
+			item.imageUrl = details.sprites.front_default;
+			item.types = details.types;
+			item.height = details.height;
+			item.weight = details.weight;
+		}).catch (function (e) {
+			console.log(e);
+		});
+	}
 
 	// Filters to search for specific pokemon
 	function searchPokemon(target) {
@@ -81,6 +94,7 @@ let pokemonRepo = (function () {
 		searchPokemon: searchPokemon,
 		addListItem: addListItem,
 		loadList: loadList,
+		loadDetails: loadDetails,
 		showDetails: showDetails,
 	};
 
