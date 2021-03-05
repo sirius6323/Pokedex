@@ -56,7 +56,7 @@ let pokemonRepo = (function () {
 					name: item.name,
 					detailsUrl: item.url
 				};
-				add(pokemon);
+				addPokemon(pokemon);
 			});
 		}).catch (function (e) {
 			console.log(e);
