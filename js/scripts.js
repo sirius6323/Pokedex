@@ -161,9 +161,25 @@ let pokemonRepo = (function () {
 	// Added functionality to pokemon modal
 	function showDialog(title, text) {
 		showModal(title, text);
+
+		// Creates an ok or cancel button for pokemon modal
+		let modal = modalContainer.querySelector('.modal');
+
+		let okButton = document.createElement('button');
+		okButton.classList.add('ok-button');
+		okButton.innerText = 'Ok';
+
+		let cancelButton = document.createElement('button');
+		cancelButton.classList.add('cancel-button');
+		cancelButton.innerText = 'Cancel';
+
+		// Appends buttons to pokemon modal
+		modal.appendChild(okButton);
+		modal.appendChild(cancelButton);
+
+		// Focuses the ok button so that user can press Enter
+		okButton.focus();
 	}
-
-
 
 	// Use keyboard "ESC" key to close pokemon modal
 	window.addEventListener('keydown', (e) => {
