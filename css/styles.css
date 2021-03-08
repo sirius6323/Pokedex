@@ -17,6 +17,7 @@ h1 {
 	text-align: center;
 }
 
+/* Styiling for the Pokemon List */
 .pokemon-list {
 	list-style-type: none;
 	text-decoration: none;
@@ -43,4 +44,16 @@ li {
 	cursor: pointer;
 	width: 150px;
 	color: #ddd;
+}
+
+/* Styling for the Pokemon modal */
+#modal-container {
+	position: fixed;
+	padding: 20px;
+	box-sizing: border-box;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
 }
