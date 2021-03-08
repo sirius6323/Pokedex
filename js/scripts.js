@@ -105,6 +105,7 @@ let pokemonRepo = (function () {
 		let closeButton = document.createElement('button');
 		closeButton.classList.add('modal-close');
 		closeButton.innerText = 'X';
+		closeButton.addEventListener('click', hideModal);
 		
 		// Created modal heading
 		let modalHeading = document.createElement('h2');
@@ -129,6 +130,13 @@ let pokemonRepo = (function () {
 	function hideModal() {
 		modalContainer.classList.remove('is-visible');
 	}
+
+	// Use keyboard "ESC" key to close modal
+	window.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+			hideModal();
+		}
+	});
 
 	document.querySelector('#show-modal').addEventListener('click', () => {
 		showModal();
