@@ -90,8 +90,8 @@ let pokemonRepo = (function () {
 		return pokemonList
 	}
 
-	// Pokemon modal functionality 
-	function showModal() {
+	// Show pokemon modal functionality 
+	function showModal(title, text) {
 		// Clears all exisiting content inside modal 
 		modalContainer.innerHTML = '';
 		
@@ -108,11 +108,11 @@ let pokemonRepo = (function () {
 		
 		// Created modal heading
 		let modalHeading = document.createElement('h2');
-		modalHeading.innerText = 'title';
+		modalHeading.innerText = title;
 
 		// Created paragraph info 
 		let modalInfo = document.createElement('p');
-		modalInfo.innerText = 'text';
+		modalInfo.innerText = text;
 
 		// Appends newly created modal elements inside modal
 		modal.appendChild(closeButton);
@@ -123,6 +123,11 @@ let pokemonRepo = (function () {
 		modalContainer.appendChild(modal);
 
 		modalContainer.classList.add('is-visible');
+	}
+
+	// Hide pokemon modal functionality
+	function hideModal() {
+		modalContainer.classList.remove('is-visible');
 	}
 
 	document.querySelector('#show-modal').addEventListener('click', () => {
