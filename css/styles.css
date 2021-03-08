@@ -90,3 +90,12 @@ li {
 	color: #ddd;
 	text-decoration: none;
 }
+
+/* Styling for pokemon modal stats info */
+.pokemon-modal h2 {
+	margin-top: 0;
+}
+
+.pokemon-modal p {
+	margin-bottom: 0;
+}
