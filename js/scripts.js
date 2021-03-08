@@ -33,7 +33,7 @@ let pokemonRepo = (function () {
 		let listPokemon = document.createElement('li');
 		let button = document.createElement('button');
 	
-		button.innerText = pokemon.name;
+		button.innerText = capitalize(pokemon.name);
 		button.classList.add('pokemon-button');
 	
 		// Appends button and to li in ul
@@ -82,6 +82,7 @@ let pokemonRepo = (function () {
 			item.weight = details.weight;
 
 			// Loops throught pokemon types array
+			item.types = [];
 			details.types.forEach(function(itemType) {
 				item.types.push(" " + capitalize(itemType.type.name));
 			});
