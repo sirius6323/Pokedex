@@ -12,11 +12,6 @@ body {
 	line-height: 35px;
 }
 
-h1 {
-	color: #ffc75f;
-	text-align: center;
-}
-
 /* Styiling for the Pokemon List */
 .pokemon-list {
 	list-style-type: none;
