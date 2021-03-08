@@ -80,6 +80,11 @@ let pokemonRepo = (function () {
 			item.types = details.types;
 			item.height = details.height;
 			item.weight = details.weight;
+
+			// Loops throught pokemon types array
+			details.types.forEach(function(itemType) {
+				item.types.push(" " + capitalize(itemType.type.name));
+			});
 		}).catch (function (e) {
 			console.log(e);
 		});
@@ -109,7 +114,7 @@ let pokemonRepo = (function () {
 		// Created close button 
 		let closeButton = document.createElement('button');
 		closeButton.classList.add('modal-close');
-		closeButton.innerText = 'X';
+		closeButton.innerHTML = 'X';
 		closeButton.addEventListener('click', hideModal);
 
 		// Created image of pokemon 
