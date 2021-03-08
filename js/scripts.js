@@ -100,24 +100,28 @@ let pokemonRepo = (function () {
 		modal.classList.add('pokemon-modal')
 
 		// Adds content to created modal 
+		
 		// Created close button 
 		let closeButton = document.createElement('button');
 		closeButton.classList.add('modal-close');
 		closeButton.innerText = 'X';
+		
 		// Created modal heading
 		let modalHeading = document.createElement('h2');
-		modalHeading.innerText = title;
+		modalHeading.innerText = 'title';
 
 		// Created paragraph info 
 		let modalInfo = document.createElement('p');
-		modalInfo.innerText = text;
+		modalInfo.innerText = 'text';
 
-		// Appends newly created modal elements 
+		// Appends newly created modal elements inside modal
 		modal.appendChild(closeButton);
 		modal.appendChild(modalHeading);
 		modal.appendChild(modalInfo);
+
+		//Appends modal inside modal-container 
 		modalContainer.appendChild(modal);
-		
+
 		modalContainer.classList.add('is-visible');
 	}
 
