@@ -70,6 +70,17 @@ li {
 }
 
 /* Styling for the pokemon modal */
+#pokemon-modal {
+	color: #ddd;
+	margin: auto;
+	display: inline-block;
+	box-sizing: border-box;
+	background-color: #1f3c88;
+	padding: 15px;
+	width: 100%;
+	max-width: 700px;
+	text-align: left;
+}
 
 /* Modal close button */
 .modal-close {
