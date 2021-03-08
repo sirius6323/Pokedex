@@ -181,6 +181,10 @@ let pokemonRepo = (function () {
 		okButton.focus();
 	}
 
+	document.querySelector('#show-dialog').addEventListener('click', () => {
+		showDialog('Confirm?', 'Are you sure?');
+	});
+
 	// Use keyboard "ESC" key to close pokemon modal
 	window.addEventListener('keydown', (e) => {
 		if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
@@ -210,7 +214,8 @@ let pokemonRepo = (function () {
 		addListItem: addListItem,
 		loadList: loadList,
 		loadDetails: loadDetails,
-		showDetails: showDetails,
+		showModal: showModal,
+		showDetails: showDetails
 	};
 
 })();
