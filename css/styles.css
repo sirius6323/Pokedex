@@ -48,7 +48,6 @@ li {
 
 /* Styling for the modal container */
 #modal-container {
-	color: #ddd;
 	position: fixed;
 	padding: 20px;
 	box-sizing: border-box;
