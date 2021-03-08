@@ -131,15 +131,24 @@ let pokemonRepo = (function () {
 		modalContainer.classList.remove('is-visible');
 	}
 
-	// Use keyboard "ESC" key to close modal
+	// Use keyboard "ESC" key to close pokemon modal
 	window.addEventListener('keydown', (e) => {
 		if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
 			hideModal();
 		}
 	});
 
+	// Click outside of modal to close pokemon modal 
+	modalContainer.addEventListener('click', (e) => {
+		let target = e.target;
+		if (target === modalContainer) {
+			hideModal();
+		}
+	});
+
+
 	document.querySelector('#show-modal').addEventListener('click', () => {
-		showModal();
+		showModal('Pokemon Name', 'Pokemon Stats');
 	});
 
   // Functions that can be used outside of scope
