@@ -89,6 +89,16 @@ let pokemonRepo = (function () {
 	function getAllPokemon() {
 		return pokemonList
 	}
+
+	// Pokemon modal functionality 
+	function showModal() {
+		modalContainer.classList.add('is-visible');
+	}
+
+	document.querySelector('#show-modal').addEventListener('click', () => {
+		showModal();
+	});
+
   // Functions that can be used outside of scope
 	return {
 		addPokemon: addPokemon,
