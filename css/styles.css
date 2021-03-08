@@ -98,3 +98,20 @@ li {
 .pokemon-modal p {
 	margin-bottom: 0;
 }
+
+/* Functionality of modal container */
+#modal-container {
+	display: none;
+}
+
+/* Styiling for modal when isvisible is active */
+#modal-container.is-visible {
+	display: block;
+	padding: 20px;
+	box-sizing: border-box;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+}
