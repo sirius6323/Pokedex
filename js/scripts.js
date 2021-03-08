@@ -111,19 +111,35 @@ let pokemonRepo = (function () {
 		closeButton.classList.add('modal-close');
 		closeButton.innerText = 'X';
 		closeButton.addEventListener('click', hideModal);
-		
-		// Created modal heading
-		let modalHeading = document.createElement('h2');
-		modalHeading.innerText = title;
 
-		// Created paragraph info 
-		let modalInfo = document.createElement('p');
-		modalInfo.innerText = text;
+		// Created image of pokemon 
+		let pokemonImage = document.createElement('img');
+		pokemonImage.classList.add('pokemon-img');
+		pokemonImage.src = pokemon.imageUrl;
+		pokemonImage.alt = "Image of " + pokemon.name;
+
+		
+		// Created pokemon name
+		let pokemonHeading = document.createElement('h2');
+		modalHeading.innerHTML = capitalize(pokemon.name);
+
+		// Created pokemon info 
+		let pokemonHeight = document.createElement('h3');
+		pokemonHeight.innerHTML = "Height: " + pokemon.height + "m";
+
+		let pokemonWeight = document.createElement('h3');
+		pokemonWeight.innerHTML = "Weight: " + pokemon.weight + "kg";
+
+		let pokemonType = document.createElement('h3');
+		pokemonType.innerHTML = "Type: " + pokemon.types;
 
 		// Appends newly created modal elements inside modal
 		modal.appendChild(closeButton);
-		modal.appendChild(modalHeading);
-		modal.appendChild(modalInfo);
+		modal.appendChild(pokemonImage);
+		modal.appendChild(pokemonHeading);
+		modal.appendChild(pokemonHeight);
+		modal.appendChild(pokemonWeight);
+		modal.appendChild(pokemonType);
 
 		//Appends modal inside modal-container 
 		modalContainer.appendChild(modal);
