@@ -92,6 +92,32 @@ let pokemonRepo = (function () {
 
 	// Pokemon modal functionality 
 	function showModal() {
+		// Clears all exisiting content inside modal 
+		modalContainer.innerHTML = '';
+		
+		// Creats modal
+		let modal = document.createElement('div');
+		modal.classList.add('pokemon-modal')
+
+		// Adds content to created modal 
+		// Created close button 
+		let closeButton = document.createElement('button');
+		closeButton.classList.add('modal-close');
+		closeButton.innerText = 'X';
+		// Created modal heading
+		let modalHeading = document.createElement('h2');
+		modalHeading.innerText = title;
+
+		// Created paragraph info 
+		let modalInfo = document.createElement('p');
+		modalInfo.innerText = text;
+
+		// Appends newly created modal elements 
+		modal.appendChild(closeButton);
+		modal.appendChild(modalHeading);
+		modal.appendChild(modalInfo);
+		modalContainer.appendChild(modal);
+		
 		modalContainer.classList.add('is-visible');
 	}
 
