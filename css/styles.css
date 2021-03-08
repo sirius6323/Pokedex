@@ -46,7 +46,7 @@ li {
 	color: #ddd;
 }
 
-/* Styling for the Pokemon modal */
+/* Styling for the modal container */
 #modal-container {
 	color: #ddd;
 	position: fixed;
@@ -58,13 +58,24 @@ li {
 	height: 100%;
 	background: rgba(0, 0, 0, 0.6);
 
-	/* Shows pokemon modal above other content */
+	/* Shows modal container above other content */
 	z-index: 999;
 
 	/* Allows for scrolling if screen not high enough */
 	overflow: auto;
 
-	/* Centers the pokemon modal */
+	/* Centers the modal container */
 	display: grid;
 	text-align: center;
+}
+
+/* Styling for the pokemon modal */
+
+/* Modal close button */
+.modal-close {
+	float: right;
+	border: 0;
+	background: none;
+	color: #ddd;
+	text-decoration: none;
 }
