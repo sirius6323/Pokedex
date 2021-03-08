@@ -4,6 +4,11 @@ let pokemonRepo = (function () {
 	let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 	let modalContainer = document.querySelector('#modal-container');
 
+	// Capitalizes the name of each pokemon
+	function capitalize (name) {
+		return name.charAt(0).toUpperCase() + name.slice(1);
+	}
+
 	// Adds pokemon to the array 
 	function addPokemon(pokemon) {
 		pokemonList.push(pokemon);
@@ -130,6 +135,13 @@ let pokemonRepo = (function () {
 	function hideModal() {
 		modalContainer.classList.remove('is-visible');
 	}
+
+	// Added functionality to pokemon modal
+	function showDialog(title, text) {
+		showModal(title, text);
+	}
+
+
 
 	// Use keyboard "ESC" key to close pokemon modal
 	window.addEventListener('keydown', (e) => {
