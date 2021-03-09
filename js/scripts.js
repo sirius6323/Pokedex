@@ -2,10 +2,10 @@
 let pokemonRepo = (function () {
 	let pokemonList = [];
 	let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-	let modalContainer = document.querySelector('#modal-container');
+	let modalContainer = document.querySelector('#modal');
 
 	// Capitalizes the name of each pokemon
-	function capitalize(name) {
+	function capitalize (name) {
 		return name.charAt(0).toUpperCase() + name.slice(1);
 	}
 
@@ -50,111 +50,61 @@ let pokemonRepo = (function () {
 
 	// Prints to console on pokemon that was clicked
 	function showDetails(pokemon) {
+		
+		// Hides modal while fetching pokemon details from API
+		const modal = document.querySelector('.modal');
+		modal.classList.add('active');
+		
 		loadDetails(pokemon).then(function () {
-			// Show pokemon modal functionality
-			function showModal(pokemon) {
-				// Clears all exisiting content inside modal
-				modalContainer.innerHTML = '';
+			// Clears all exisiting content inside modal 
+			modalContainer.innerHTML = '';
 
-				// Creats modal
-				let modal = document.createElement('div');
-				modal.classList.add('pokemon-modal');
+			// Creates a modal container 
+			const pokemonModal = document.createElement("div");
+			pokemonModal.classList.add('modal');
+			modalContainer.appendChild(modal);
 
-				// Adds content to created modal
+			// Creates pokemon header of modal
+			const pokemonHeader = document.createElement("div");
+			pokemonHeader.classList.add('modal-header');
+			pokemonModal.appendChild(pokemonHeader);
 
-				// Created close button
-				let closeButton = document.createElement('button');
-				closeButton.classList.add('modal-close');
-				closeButton.innerHTML = 'X';
-				closeButton.addEventListener('click', hideModal);
+			// Creates pokemon name title
+			const pokemonTitle = document.createElement("h1");
+			pokemonTitle.classList.add('title');
+			pokemonTitle.innerHTML = capitalize(pokemon.name);
+			pokemonModal.appendChild(pokemonTitle);
 
-				// Created image of pokemon
-				let pokemonImage = document.createElement('img');
-				pokemonImage.classList.add('pokemon-img');
-				pokemonImage.src = pokemon.imageUrl;
-				pokemonImage.alt = "Image of " + pokemon.name;
+			// Creates close button for pokemon modal
+			const closeButton = document.createElement("button");
+			closeButton.classList.add('close-button');
+			closeButton.innerText = '&times;';
+			pokemonModal.appendChild(closeButton);
 
-				// Created pokemon name
-				let pokemonHeading = document.createElement('h2');
-				pokemonHeading.innerHTML = capitalize(pokemon.name);
+			// Creates pokemon modal body 
+			const pokeModalBody = document.createElement("div");
+			pokeModalBody.classList.add('modal-body');
+			pokemonModal.appendChild(pokeModalBody);
 
-				// Created pokemon info
-				let pokemonHeight = document.createElement('h3');
-				pokemonHeight.innerHTML = 'Height: ' + pokemon.height + 'm';
+			// Pokemon stats
+			const pokemonType = document.createElement("h3");
+			pokemonType.innerHTML = `Type: ${pokemon.types}`;
+			pokemonModal.appendChild(pokemonType);
 
-				let pokemonWeight = document.createElement('h3');
-				pokemonWeight.innerHTML = 'Weight: ' + pokemon.weight + 'kg';
+			const pokemonHeight = doucment.createElement("h3");
+			pokemonHeight.innerHTML = `Height: ${pokemon.height} m`;
+			pokemonModal.appendChild(pokemonHeight);
 
-				let pokemonType = document.createElement('h3');
-				pokemonType.innerHTML = 'Type: ' + pokemon.types;
+			const pokemonWeight = document.createElement("h3");
+			pokemonWeight.innerHTML = `Weight: ${pokemon.weight} kg`;
+			pokemonModal.appendChild(pokemonWeight);
 
-				// Appends newly created modal elements inside modal
-				modal.appendChild(closeButton);
-				modal.appendChild(pokemonImage);
-				modal.appendChild(pokemonHeading);
-				modal.appendChild(pokemonHeight);
-				modal.appendChild(pokemonWeight);
-				modal.appendChild(pokemonType);
-
-				//Appends modal inside modal-container
-				modalContainer.appendChild(pokemon - modal);
-
-				modalContainer.classList.add('is-visible');
-			}
-
-			// Hide pokemon modal functionality
-			function hideModal() {
-				modalContainer.classList.remove('is-visible');
-			}
-
-			// Added functionality to pokemon modal
-			function showDialog(title, text) {
-				showModal(title, text);
-
-				// Creates an ok or cancel button for pokemon modal
-				let modal = modalContainer.querySelector('.pokemon-modal');
-
-				let okButton = document.createElement('button');
-				okButton.classList.add('ok-button');
-				okButton.innerText = 'Ok';
-
-				let cancelButton = document.createElement('button');
-				cancelButton.classList.add('cancel-button');
-				cancelButton.innerText = 'Cancel';
-
-				// Appends buttons to pokemon modal
-				modal.appendChild(okButton);
-				modal.appendChild(cancelButton);
-
-				// Focuses the ok button so that user can press Enter
-				okButton.focus();
-			}
-
-			document.querySelector('#show-dialog').addEventListener('click', () => {
-				showDialog('Confirm?', 'Are you sure?');
-			});
-
-			// Use keyboard "ESC" key to close pokemon modal
-			window.addEventListener('keydown', (e) => {
-				if (
-					e.key === 'Escape' &&
-					modalContainer.classList.contains('is-visible')
-				) {
-					hideModal();
-				}
-			});
-
-			// Click outside of modal to close pokemon modal
-			modalContainer.addEventListener('click', (e) => {
-				let target = e.target;
-				if (target === modalContainer) {
-					hideModal();
-				}
-			});
-
-			document.querySelector('#show-modal').addEventListener('click', () => {
-				showModal('Pokemon Name', 'Pokemon Stats');
-			});
+			// Creates pokemon image 
+			const pokemonImage = document.createElement("img");
+			pokemonImage.classList.add('pokemon-img');
+			pokemonImage.src = pokemon.imageUrl;
+			pokemonImage.alt = `Image of ${pokemon.name}`;
+			pokemonModal.appendChild(pokemonImage);
 		});
 	}
 	// Function to load pokemon by using fetch from Pokemon API
@@ -167,7 +117,7 @@ let pokemonRepo = (function () {
 				json.results.forEach(function (item) {
 					let pokemon = {
 						name: item.name,
-						detailsUrl: item.url,
+						detailsUrl: item.url
 					};
 					addPokemon(pokemon);
 				});
@@ -221,8 +171,7 @@ let pokemonRepo = (function () {
 		addListItem: addListItem,
 		loadList: loadList,
 		loadDetails: loadDetails,
-		showModal: showModal,
-		showDetails: showDetails,
+		showDetails: showDetails
 	};
 })();
 
@@ -233,3 +182,61 @@ pokemonRepo.loadList().then(function () {
 		pokemonRepo.addListItem(pokemon);
 	});
 });
+
+
+// Functionality for pokemon modal
+const openModalButtons = document.querySelectorAll('[data-modal-target]');
+const closeModalButtons = document.querySelectorAll('[data-close-button]');
+const overlay = document.getElementById('overlay');
+
+// Opens the modal 
+openModalButtons.forEach(button => {
+	button.addEventListener('click' , () => {
+		// Selects our modal
+		const modal = document.querySelector(button.dataset.modalTarget);
+		openModal(modal);
+	})
+})
+
+// Closes the modal when clicked anywhere on overlay
+overlay.addEventListener('click', () => {
+	// Selects all modals that are open
+	const modals = document.querySelectorAll('.modal.active');
+	modals.forEach(modal => {
+		closeModal(modal);
+	})
+})
+
+// Closes the modal with the close button 
+closeModalButtons.forEach(button => {
+	button.addEventListener('click' , () => {
+		// Checks parent element for modal
+		const modal = button.closest('.modal');
+		closeModal(modal);
+	})
+// Closes the modal with the Esc key 
+	window.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && modal.classList.contains('active')) {
+			closeModal(modal);
+		}
+	});
+})
+
+// Function to open modal 
+function openModal(modal) {
+	if (modal == null) return 
+	// Adds active class to modal 
+	modal.classList.add('active');
+	// Opens overlay if modal is open 
+	overlay.classList.add('active');
+}
+
+// Function to close modal 
+function closeModal(modal) {
+	if (modal == null) return 
+	// Removes active class from modal 
+	modal.classList.remove('active');
+	// Opens overlay if modal is open 
+	overlay.classList.remove('active');
+}
+
