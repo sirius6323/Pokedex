@@ -54,7 +54,8 @@ li {
 	background-color: #ddd;
 	z-index: 10;
 	width: 600px;
-	max-width: 80%;
+	max-width: 100%;
+	max-height: 100%;
 }
 
 .modal.active {
