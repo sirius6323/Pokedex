@@ -13,10 +13,24 @@
 	</head>
 	<body>
 		<div class="pokedex">
-			<ul class="pokemon-list"></ul>
-			<button id="show-modal">Show Modal</button>
-			<button id="show-dialog">Show Dialog</button>
-			<div id="modal-container"></div>
+			<button id="show-modal">Open Modal</button>
+			<div class="modal" id="modal">
+				<div class="modal-header">
+					<div class="title">Pokemon Name</div>
+					<button class="close-button">&times;</button>
+				</div>
+				<div class="modal-body">
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta
+					consequuntur odio amet illo voluptate quis fuga culpa unde quia ea
+					fugiat eius repudiandae maiores error dolores temporibus minima, enim
+					beatae libero neque esse voluptas. Delectus ipsa et sunt magnam odit
+					fugit minima iste quos repellendus adipisci facilis laborum beatae ex
+					vel sapiente quibusdam, magni, libero ad. Dolorum obcaecati harum
+					illo.
+				</div>
+				<ul class="pokemon-list"></ul>
+			</div>
+			<div class="overlay"></div>
 		</div>
 		<script src="js/promise-polyfill.js"></script>
 		<script src="js/fetch-polyfill.js"></script>
