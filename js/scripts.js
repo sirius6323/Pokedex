@@ -5,7 +5,7 @@ let pokemonRepo = (function () {
 	let modalContainer = document.querySelector('#modal');
 
 	// Capitalizes the name of each pokemon
-	function capitalize (name) {
+	function capitalize(name) {
 		return name.charAt(0).toUpperCase() + name.slice(1);
 	}
 
@@ -50,63 +50,65 @@ let pokemonRepo = (function () {
 
 	// Prints to console on pokemon that was clicked
 	function showDetails(pokemon) {
-		
-		// Hides modal while fetching pokemon details from API
-		const modal = document.querySelector('.modal');
-		modal.classList.add('active');
-		
 		loadDetails(pokemon).then(function () {
-			// Clears all exisiting content inside modal 
-			modalContainer.innerHTML = '';
+			
+			// Modal selectors 
+			const openModalButtons = document.querySelectorAll('[data-modal-target]');
+			const closeModalButtons = document.querySelectorAll('[data-close-button]');
+			const overlay = document.getElementById('overlay');
 
-			// Creates a modal container 
-			const pokemonModal = document.createElement("div");
-			pokemonModal.classList.add('modal');
-			modalContainer.appendChild(modal);
+			// Opens the modal 
+			openModalButtons.forEach(button => {
+				button.addEventListener('click', () => {
+					const modal = document.querySelector(button.dataset.modalTarget);
+					openModal(modal);
+				});
+			});
 
-			// Creates pokemon header of modal
-			const pokemonHeader = document.createElement("div");
-			pokemonHeader.classList.add('modal-header');
-			pokemonModal.appendChild(pokemonHeader);
+			// Clicking overlay closes modal 
+			overlay.addEventListener('click', () => {
+				const modals = document.querySelectorAll('.modal.active');
+				modals.forEach(modal => {
+					closeModal(modal);
+				});
+			});
 
-			// Creates pokemon name title
-			const pokemonTitle = document.createElement("h1");
-			pokemonTitle.classList.add('title');
-			pokemonTitle.innerHTML = capitalize(pokemon.name);
-			pokemonModal.appendChild(pokemonTitle);
+			// Closes modal with the close button 
+			closeModalButtons.forEach(button => {
+				button.addEventListener('click', () => {
+					const modal = button.closest('.modal');
+					closeModal(modal);
+				});
 
-			// Creates close button for pokemon modal
-			const closeButton = document.createElement("button");
-			closeButton.classList.add('close-button');
-			closeButton.innerText = '&times;';
-			pokemonModal.appendChild(closeButton);
+				// Closes modal with the Esc key
+				window.addEventListener('keydown', (e) => {
+					if (e.key === 'Escape' && modal.classList.contains('active')) {
+						closeModal(modal);
+					}
+				});
+			});
 
-			// Creates pokemon modal body 
-			const pokeModalBody = document.createElement("div");
-			pokeModalBody.classList.add('modal-body');
-			pokemonModal.appendChild(pokeModalBody);
+			// Function to open the modal 
+			function openModal(modal) {
+				if (modal == null) return
+				// Adds active class to modal 
+				modal.classList.add('active');
+				// Adds active class to overlay
+				overlay.classList.add('active');
+			}
 
-			// Pokemon stats
-			const pokemonType = document.createElement("h3");
-			pokemonType.innerHTML = `Type: ${pokemon.types}`;
-			pokemonModal.appendChild(pokemonType);
+			// Function to close the modal 
+			function closeModal(modal) {
+				if (modal == null) return
+				// Removes active class from modal 
+				modal.classList.remove('active');
+				// Removes active class from overlay
+				overlay.classList.remove('active');
+			}
 
-			const pokemonHeight = doucment.createElement("h3");
-			pokemonHeight.innerHTML = `Height: ${pokemon.height} m`;
-			pokemonModal.appendChild(pokemonHeight);
-
-			const pokemonWeight = document.createElement("h3");
-			pokemonWeight.innerHTML = `Weight: ${pokemon.weight} kg`;
-			pokemonModal.appendChild(pokemonWeight);
-
-			// Creates pokemon image 
-			const pokemonImage = document.createElement("img");
-			pokemonImage.classList.add('pokemon-img');
-			pokemonImage.src = pokemon.imageUrl;
-			pokemonImage.alt = `Image of ${pokemon.name}`;
-			pokemonModal.appendChild(pokemonImage);
 		});
 	}
+
 	// Function to load pokemon by using fetch from Pokemon API
 	function loadList() {
 		return fetch(apiUrl)
@@ -117,7 +119,7 @@ let pokemonRepo = (function () {
 				json.results.forEach(function (item) {
 					let pokemon = {
 						name: item.name,
-						detailsUrl: item.url
+						detailsUrl: item.url,
 					};
 					addPokemon(pokemon);
 				});
@@ -171,7 +173,7 @@ let pokemonRepo = (function () {
 		addListItem: addListItem,
 		loadList: loadList,
 		loadDetails: loadDetails,
-		showDetails: showDetails
+		showDetails: showDetails,
 	};
 })();
 
@@ -182,61 +184,3 @@ pokemonRepo.loadList().then(function () {
 		pokemonRepo.addListItem(pokemon);
 	});
 });
-
-
-// Functionality for pokemon modal
-const openModalButtons = document.querySelectorAll('[data-modal-target]');
-const closeModalButtons = document.querySelectorAll('[data-close-button]');
-const overlay = document.getElementById('overlay');
-
-// Opens the modal 
-openModalButtons.forEach(button => {
-	button.addEventListener('click' , () => {
-		// Selects our modal
-		const modal = document.querySelector(button.dataset.modalTarget);
-		openModal(modal);
-	})
-})
-
-// Closes the modal when clicked anywhere on overlay
-overlay.addEventListener('click', () => {
-	// Selects all modals that are open
-	const modals = document.querySelectorAll('.modal.active');
-	modals.forEach(modal => {
-		closeModal(modal);
-	})
-})
-
-// Closes the modal with the close button 
-closeModalButtons.forEach(button => {
-	button.addEventListener('click' , () => {
-		// Checks parent element for modal
-		const modal = button.closest('.modal');
-		closeModal(modal);
-	})
-// Closes the modal with the Esc key 
-	window.addEventListener('keydown', (e) => {
-		if (e.key === 'Escape' && modal.classList.contains('active')) {
-			closeModal(modal);
-		}
-	});
-})
-
-// Function to open modal 
-function openModal(modal) {
-	if (modal == null) return 
-	// Adds active class to modal 
-	modal.classList.add('active');
-	// Opens overlay if modal is open 
-	overlay.classList.add('active');
-}
-
-// Function to close modal 
-function closeModal(modal) {
-	if (modal == null) return 
-	// Removes active class from modal 
-	modal.classList.remove('active');
-	// Opens overlay if modal is open 
-	overlay.classList.remove('active');
-}
-
