@@ -2,7 +2,7 @@
 let pokemonRepo = (function () {
 	let pokemonList = [];
 	let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-	let modalContainer = document.querySelector('#modal');
+	let modal = document.querySelector('#modal');
 
 	// Capitalizes the name of each pokemon
 	function capitalize(name) {
@@ -50,62 +50,8 @@ let pokemonRepo = (function () {
 
 	// Prints to console on pokemon that was clicked
 	function showDetails(pokemon) {
-		loadDetails(pokemon).then(function () {
-			
-			// Modal selectors 
-			const openModalButtons = document.querySelectorAll('[data-modal-target]');
-			const closeModalButtons = document.querySelectorAll('[data-close-button]');
-			const overlay = document.getElementById('overlay');
-
-			// Opens the modal 
-			openModalButtons.forEach(button => {
-				button.addEventListener('click', () => {
-					const modal = document.querySelector(button.dataset.modalTarget);
-					openModal(modal);
-				});
-			});
-
-			// Clicking overlay closes modal 
-			overlay.addEventListener('click', () => {
-				const modals = document.querySelectorAll('.modal.active');
-				modals.forEach(modal => {
-					closeModal(modal);
-				});
-			});
-
-			// Closes modal with the close button 
-			closeModalButtons.forEach(button => {
-				button.addEventListener('click', () => {
-					const modal = button.closest('.modal');
-					closeModal(modal);
-				});
-
-				// Closes modal with the Esc key
-				window.addEventListener('keydown', (e) => {
-					if (e.key === 'Escape' && modal.classList.contains('active')) {
-						closeModal(modal);
-					}
-				});
-			});
-
-			// Function to open the modal 
-			function openModal(modal) {
-				if (modal == null) return
-				// Adds active class to modal 
-				modal.classList.add('active');
-				// Adds active class to overlay
-				overlay.classList.add('active');
-			}
-
-			// Function to close the modal 
-			function closeModal(modal) {
-				if (modal == null) return
-				// Removes active class from modal 
-				modal.classList.remove('active');
-				// Removes active class from overlay
-				overlay.classList.remove('active');
-			}
-
+		loadDetails(pokemon).then(() => {
+			console.log(pokemon);
 		});
 	}
 
