@@ -21,6 +21,7 @@ body {
 	justify-content: center;
 	margin: 10px;
 	padding: 10px;
+	
 }
 
 li {
@@ -44,17 +45,18 @@ li {
 
 /* Styling for the modal */
 .modal {
+	font-family: inherit;
 	position: fixed;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%) scale(0);
 	transition: 200ms ease-in-out;
-	border: 1px solid #0e1111;
+	border: 2px solid #0e1111;
 	border-radius: 10px;
 	background-color: #ddd;
 	z-index: 999;
 	width: 500px;
-	max-width: 100%;
+	max-width: 80%;
 }
 
 .modal.active {
@@ -66,12 +68,13 @@ li {
 	display: flex;
 	justify-content: space-between;
 	align-content: center;
-	border-bottom: 1px solid #0e1111;
+	border-bottom: 2px solid #0e1111;
 }
 
 .modal-header .title {
 	font-size: 1.25rem;
 	font-weight: bold;
+	font-family: inherit;
 }
 
 .modal-header .close-button {
@@ -85,6 +88,8 @@ li {
 
 .modal-body {
 	padding: 10px 15px;
+	font-family: inherit;
+	font-size: 18px;
 }
 
 #overlay {
