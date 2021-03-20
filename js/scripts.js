@@ -128,7 +128,6 @@ let pokemonRepo = (function () {
 				event.key === 'Escape' &&
 				modalContainer.classList.contains('active')
 			) {
-				console.log(event);
 				closeModal();
 			}
 		});
