@@ -95,6 +95,9 @@ let pokemonRepo = (function () {
 		const pokeWeight = document.createElement('h4');
 		pokeWeight.innerText = `Weight: ${pokemon.weight} kg`;
 
+		const pokeDiv = document.createElement('div');
+		pokeDiv.classList.add('pokemon-container');
+
 		const pokeImg = document.createElement('img');
 		pokeImg.classList.add('pokemon-image');
 		pokeImg.src = pokemon.imageUrl;
@@ -112,7 +115,8 @@ let pokemonRepo = (function () {
 		modalBody.appendChild(pokeType);
 		modalBody.appendChild(pokeHeight);
 		modalBody.appendChild(pokeWeight);
-		modalBody.appendChild(pokeImg);
+		modalBody.appendChild(pokeDiv);
+		pokeDiv.appendChild(pokeImg);
 
 		// Adds active class to modalContainer and pokeModal to display
 		modalContainer.classList.add('active');
