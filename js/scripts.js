@@ -31,12 +31,14 @@ let pokemonRepo = (function () {
 
 	// Functions that adds pokemon to a button on a list on the home page
 	function addListItem(pokemon) {
-		let pokeList = document.querySelector('.pokemon-list');
+		let pokeList = document.querySelector('.list-group');
 		let listPokemon = document.createElement('li');
 		let button = document.createElement('button');
 
 		button.innerText = capitalize(pokemon.name);
-		button.classList.add('pokemon-button');
+		button.setAttribute('type', 'button');
+		button.classList.add('btn-info');
+		pokeList.classList.add('list-unstyled');
 
 		// Appends button and to li in ul
 		listPokemon.appendChild(button);
