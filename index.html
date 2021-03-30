@@ -2,7 +2,10 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1 shrink-to-fit=no"
+		/>
 		<title>Pokemon Pokedex</title>
 
 		<!-- Bootstrap CSS CDN-->
@@ -21,10 +24,52 @@
 		<link rel="stylesheet" href="css/styles.css" type="text/css" />
 	</head>
 	<body>
-		<nav class="navbar-dark bg-dark">
-			<img src="img/pokeball-icon.ico" alt="Pokeball" height="32" width="32" />
-			<span class="navbar-brand mb0 h1">Pokemon Pokedex</span>
-		</nav>
+		<header class="container">
+			<nav
+				class="navbar navbar-expand-lg navbar-dark bg-dark text-uppercase fixed-top p-3"
+				role="navigation"
+			>
+				<div class="container-fluid d-flex align-items-center">
+					<div
+						class="col-12 col-md-3 d-flex justify-content-center justify-content-md-start"
+					>
+						<a class="navbar-brand" href="index.html">
+							<img
+								id="pokeball-icon"
+								src="img/pokeball-icon.ico"
+								width="30"
+								height="30"
+								class="d-line align-top"
+								alt="Pokeball"
+							/><strong>Pokedex</strong></a
+						>
+					</div>
+					<div class="col-12 col-md-6 nav-search p-3 p-md-0">
+						<form class="d-flex">
+							<input
+								class="search form-control me-md-6"
+								type="text"
+								placeholder="Pokemon Search"
+								aria-label="Search"
+							/>
+						</form>
+					</div>
+					<div
+						class="col-12 col-md-3 d-flex justify-content-center justify-content-md-end"
+					>
+						<a class="github" href="https://github.com/sirius6323">
+							<img
+								class="github-icon"
+								src="img/github-icon.svg"
+								width="30"
+								height="30"
+								alt="Github Logo"
+							/>
+						</a>
+					</div>
+				</div>
+			</nav>
+		</header>
 		<div class="pokedex">
 			<div id="overlay"></div>
 			<ul class="list-group"></ul>
