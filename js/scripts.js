@@ -31,7 +31,7 @@ let pokemonRepo = (function () {
 
 	// Functions that adds pokemon to a button on a list on the home page
 	function addListItem(pokemon) {
-		let pokeList = document.querySelector('.list-group');
+		let pokeList = document.querySelector('.pokemon-list');
 		let pokeRow = document.createElement('div');
 		let listPokemon = document.createElement('li');
 		let button = document.createElement('button');
@@ -40,10 +40,9 @@ let pokemonRepo = (function () {
 		button.setAttribute('type', 'button');
 		button.classList.add('btn');
 		button.classList.add('btn-dark');
-		pokeList.classList.add('d-flex');
 		pokeList.classList.add('list-unstyled');
 		listPokemon.classList.add('list-group-item');
-		listPokemon.classList.add('col');
+		listPokemon.classList.add('col-12');
 		listPokemon.classList.add('col-md-4');
 
 		// Appends button and li in ul
