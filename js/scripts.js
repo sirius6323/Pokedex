@@ -32,15 +32,21 @@ let pokemonRepo = (function () {
 	// Functions that adds pokemon to a button on a list on the home page
 	function addListItem(pokemon) {
 		let pokeList = document.querySelector('.list-group');
+		let pokeRow = document.createElement('div');
 		let listPokemon = document.createElement('li');
 		let button = document.createElement('button');
 
 		button.innerText = capitalize(pokemon.name);
 		button.setAttribute('type', 'button');
-		button.classList.add('btn-info');
+		button.classList.add('btn');
+		button.classList.add('btn-dark');
+		pokeList.classList.add('d-flex');
 		pokeList.classList.add('list-unstyled');
+		listPokemon.classList.add('list-group-item');
+		listPokemon.classList.add('col');
+		listPokemon.classList.add('col-md-4');
 
-		// Appends button and to li in ul
+		// Appends button and li in ul
 		listPokemon.appendChild(button);
 		pokeList.appendChild(listPokemon);
 
@@ -139,13 +145,13 @@ let pokemonRepo = (function () {
 		});
 	}
 
-	// Closes modal when clicked outside on overlay
+	/* 	// Closes modal when clicked outside on overlay
 	modalContainer.addEventListener('click', (event) => {
 		let target = event.target;
 		if (target === modalContainer) {
 			closeModal();
 		}
-	});
+	}); */
 
 	// Function to load pokemon by using fetch from Pokemon API
 	function loadList() {
