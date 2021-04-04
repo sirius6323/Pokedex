@@ -6,9 +6,10 @@ body {
 	background-color: #e3dbdb;
 }
 
-.list-group .list-group-item {
+.pokemon-list .list-group-item {
 	background-color: transparent;
 	border: none;
+	flex-direction: column;
 }
 
 /* Custom styling for button */
@@ -20,6 +21,7 @@ body {
 	font-family: 'Space Mono', monospace;
 	border: none;
 	width: 100%;
+	transition: all 300ms;
 }
 
 .btn-dark:hover {
