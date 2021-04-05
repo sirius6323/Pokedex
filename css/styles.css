@@ -28,3 +28,9 @@ body {
 	background-color: #5fbff9;
 	border: none;
 }
+
+.btn:active:focus {
+	color: #ddd;
+	background-color: #a63446 !important;
+	border-color: #a63446 !important;
+}
