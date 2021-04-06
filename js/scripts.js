@@ -68,13 +68,16 @@ let pokemonRepo = (function () {
 			modalTitle.empty();
 			modalBody.empty();
 
-			let pokemonName = $('<h1>' + pokemon.name + '</h1>');
-			let pokemonImage = $(
-				'<img class="pokemon-image" style="width: 200px" />'
+			let pokemonName = $('<h4>' + capitalize(pokemon.name) + '</h4>');
+			let pokemonImage = $('<img class="modal-image" style="width:150px" />');
+			pokemonImage.attr('src', pokemon.imageUrl);
+			pokemonImage.attr(
+				'alt',
+				`A high resolution sprite image of ${pokemon.name}`
 			);
-			let pokemonType = $('<h1>' + pokemon.types + '</h1>');
-			let pokemonHeight = $('<h1>' + pokemon.height + '</h1>');
-			let pokemonWeight = $('<h1>' + pokemon.weight + '</h1>');
+			let pokemonType = `<h4>Types: ${pokemon.types}</h4>`;
+			let pokemonHeight = `<h4> Height: ${pokemon.height} m</h4>`;
+			let pokemonWeight = `<h4> Weight: ${pokemon.weight} kg </h4>`;
 
 			modalTitle.append(pokemonName);
 			modalBody.append(pokemonImage);
