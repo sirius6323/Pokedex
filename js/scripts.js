@@ -40,6 +40,8 @@ let pokemonRepo = (function () {
 		button.setAttribute('type', 'button');
 		button.classList.add('btn');
 		button.classList.add('btn-dark');
+		button.setAttribute('data-target', '#pokemonModal');
+		button.setAttribute('data-toggle', 'modal');
 		pokeList.classList.add('list-unstyled');
 		listPokemon.classList.add('list-group-item');
 		listPokemon.classList.add('col-12');
@@ -55,52 +57,30 @@ let pokemonRepo = (function () {
 		});
 	}
 
-	// Prints to console on pokemon that was clicked
+	// Displays detailed information of pokemon
 	function showDetails(pokemon) {
 		loadDetails(pokemon).then(() => {
-			// Displays overlay and modal of pokemon
-			openModal(pokemon);
-		});
-	}
+			// Displays modal of pokemon that was clicked
+			let modalHeader = $('.modal-header');
+			let modalTitle = $('.modal-title');
+			let modalBody = $('.modal-body');
 
-	// Function to display modal of pokemon
-	function openModal(pokemon) {
-		// Clears all existing modal content
-		modalContainer.innerHTML = '';
+			modalTitle.empty();
+			modalBody.empty();
 
-		// Creates stats for pokemon
-		const pokeType = document.createElement('h4');
-		pokeType.innerText = `Type: ${pokemon.types}`;
+			let pokemonName = $('<h1>' + pokemon.name + '</h1>');
+			let pokemonImage = $(
+				'<img class="pokemon-image" style="width: 200px" />'
+			);
+			let pokemonType = $('<h1>' + pokemon.types + '</h1>');
+			let pokemonHeight = $('<h1>' + pokemon.height + '</h1>');
+			let pokemonWeight = $('<h1>' + pokemon.weight + '</h1>');
 
-		const pokeHeight = document.createElement('h4');
-		pokeHeight.innerText = `Height: ${pokemon.height} m`;
-
-		const pokeWeight = document.createElement('h4');
-		pokeWeight.innerText = `Weight: ${pokemon.weight} kg`;
-
-		const pokeDiv = document.createElement('div');
-		pokeDiv.classList.add('pokemon-container');
-
-		const pokeImg = document.createElement('img');
-		pokeImg.classList.add('pokemon-image');
-		pokeImg.src = pokemon.imageUrl;
-		pokeImg.setAttribute(
-			'alt',
-			`A high resolution sprite image of ${pokemon.name}`
-		);
-	}
-
-	// Function to close modal
-	function closeModal() {
-		modalContainer.classList.remove('active');
-		// Closes modal with the Esc key
-		window.addEventListener('keydown', (event) => {
-			if (
-				event.key === 'Escape' &&
-				modalContainer.classList.contains('active')
-			) {
-				closeModal();
-			}
+			modalTitle.append(pokemonName);
+			modalBody.append(pokemonImage);
+			modalBody.append(pokemonType);
+			modalBody.append(pokemonHeight);
+			modalBody.append(pokemonWeight);
 		});
 	}
 
