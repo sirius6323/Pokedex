@@ -2,7 +2,7 @@
 let pokemonRepo = (function () {
 	let pokemonList = [];
 	let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-	const modalContainer = document.querySelector('#overlay');
+	const modalContainer = document.querySelector('#pokemonModal');
 
 	// Capitalizes the name of each pokemon
 	function capitalize(pokemonName) {
@@ -68,30 +68,6 @@ let pokemonRepo = (function () {
 		// Clears all existing modal content
 		modalContainer.innerHTML = '';
 
-		// Creates modal
-		const pokeModal = document.createElement('div');
-		pokeModal.classList.add('modal');
-		pokeModal.setAttribute('id', 'modal');
-
-		// Creates modal header
-		const modalHeader = document.createElement('div');
-		modalHeader.classList.add('modal-header');
-
-		// Creates modal title
-		const pokeTitle = document.createElement('div');
-		pokeTitle.classList.add('title');
-		pokeTitle.innerText = capitalize(pokemon.name);
-
-		// Creates modal close button
-		const closeButton = document.createElement('button');
-		closeButton.classList.add('close-button');
-		closeButton.innerHTML = '&times;';
-		closeButton.addEventListener('click', closeModal);
-
-		// Creates modal body
-		const modalBody = document.createElement('div');
-		modalBody.classList.add('modal-body');
-
 		// Creates stats for pokemon
 		const pokeType = document.createElement('h4');
 		pokeType.innerText = `Type: ${pokemon.types}`;
@@ -112,22 +88,6 @@ let pokemonRepo = (function () {
 			'alt',
 			`A high resolution sprite image of ${pokemon.name}`
 		);
-
-		// Appends created modal and contents to modal container
-		modalContainer.appendChild(pokeModal);
-		pokeModal.appendChild(modalHeader);
-		modalHeader.appendChild(pokeTitle);
-		modalHeader.appendChild(closeButton);
-		pokeModal.appendChild(modalBody);
-		modalBody.appendChild(pokeType);
-		modalBody.appendChild(pokeHeight);
-		modalBody.appendChild(pokeWeight);
-		modalBody.appendChild(pokeDiv);
-		pokeDiv.appendChild(pokeImg);
-
-		// Adds active class to modalContainer and pokeModal to display
-		modalContainer.classList.add('active');
-		pokeModal.classList.add('active');
 	}
 
 	// Function to close modal
@@ -143,14 +103,6 @@ let pokemonRepo = (function () {
 			}
 		});
 	}
-
-	/* 	// Closes modal when clicked outside on overlay
-	modalContainer.addEventListener('click', (event) => {
-		let target = event.target;
-		if (target === modalContainer) {
-			closeModal();
-		}
-	}); */
 
 	// Function to load pokemon by using fetch from Pokemon API
 	function loadList() {
