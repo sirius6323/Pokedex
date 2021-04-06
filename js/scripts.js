@@ -69,7 +69,7 @@ let pokemonRepo = (function () {
 			modalBody.empty();
 
 			let pokemonName = $('<h4>' + capitalize(pokemon.name) + '</h4>');
-			let pokemonImage = $('<img class="modal-image" style="width:150px" />');
+			let pokemonImage = $('<img class="modal-image" style="width:200px" />');
 			pokemonImage.attr('src', pokemon.imageUrl);
 			pokemonImage.attr(
 				'alt',
