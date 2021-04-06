@@ -2,7 +2,7 @@
 let pokemonRepo = (function () {
 	let pokemonList = [];
 	let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-	const modalContainer = document.querySelector('#pokemonModal');
+	let searchPokemon = document.querySelector('#search-bar');
 
 	// Capitalizes the name of each pokemon
 	function capitalize(pokemonName) {
@@ -32,7 +32,6 @@ let pokemonRepo = (function () {
 	// Functions that adds pokemon to a button on a list on the home page
 	function addListItem(pokemon) {
 		let pokeList = document.querySelector('.pokemon-list');
-		let pokeRow = document.createElement('div');
 		let listPokemon = document.createElement('li');
 		let button = document.createElement('button');
 
@@ -44,6 +43,7 @@ let pokemonRepo = (function () {
 		button.setAttribute('data-toggle', 'modal');
 		pokeList.classList.add('list-unstyled');
 		listPokemon.classList.add('list-group-item');
+		listPokemon.classList.add('pokemon');
 		listPokemon.classList.add('col-12');
 		listPokemon.classList.add('col-md-4');
 
@@ -132,10 +132,20 @@ let pokemonRepo = (function () {
 			});
 	}
 
-	// Filters to search for specific pokemon
-	function searchPokemon(target) {
-		return pokemonList.filter((pokemon) => pokemon.name == target);
-	}
+	// Search for specific pokemon
+	searchPokemon.addEventListener('input', function () {
+		let allPokemon = document.querySelectorAll('.pokemon');
+		let filterPokemon = searchPokemon.value.toUpperCase();
+
+		allPokemon.forEach(function (item) {
+			console.log(item.innerText);
+			if (item.innerHTML.toUpperCase().indexOf(filterPokemon) > -1) {
+				item.style.display = '';
+			} else {
+				item.style.display = 'none';
+			}
+		});
+	});
 
 	// Returns all pokemon in array
 	function getAllPokemon() {
@@ -147,7 +157,6 @@ let pokemonRepo = (function () {
 		addPokemon: addPokemon,
 		getAllPokemon: getAllPokemon,
 		checkPokemon: checkPokemon,
-		searchPokemon: searchPokemon,
 		addListItem: addListItem,
 		loadList: loadList,
 		loadDetails: loadDetails,
