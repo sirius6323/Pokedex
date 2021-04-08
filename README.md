@@ -15,3 +15,5 @@ This project's purpose was to build an application that utilized an asynchronus 
 
 ## Usage
 Using the application, one can click a pokemon button from the populated list being displayed. The search bar is also able to filter out a specific pokemon from the populated list. 
+
+[View Application](https://sirius6323.github.io/Pokedex)
